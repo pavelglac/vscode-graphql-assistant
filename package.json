@@ -1,6 +1,6 @@
 {
-  "name": "graphql-schema",
-  "displayName": "graphql-schema",
+  "name": "graphql-assistant",
+  "displayName": "graphql-assistant",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -8,24 +8,46 @@
   },
   "categories": [
     "Other"
-  ],  
+  ],
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
-    "viewsContainers": {
-      "activitybar": [
+    "chatParticipants": [
+      {
+        "id": "graphql-assistant.chat",
+        "name": "graphql",
+        "fullName": "Graphql",
+        "description": "Describe your given task",
+        "isSticky": true,
+        "disambiguation": [
+          {
+            "category": "graphql_schema",
+            "description": "Helps design GraphQL schemas",
+            "examples": [
+              "Extend an existing GraphQL schema"
+            ]
+          }
+        ],
+        "commands": [
+          {
+            "name": "schema",
+            "description": "Helps you to extend your schema"
+          }
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "graphql-assistant.annotate",
+        "title": "Toggle GraphQL Annotations",
+        "icon": "./icon.svg"
+      }
+    ],
+    "menus": {
+      "editor/title": [
         {
-          "id": "graphqlSchemaContainer",
-          "title": "Azure Chat",
-          "icon": "media/icon.svg"
-        }
-      ]
-    },
-    "views": {
-      "graphqlSchemaContainer": [
-        {
-          "id": "graphqlSchemaView",
-          "name": "Azure AI Chat"
+          "command": "graphql-assistant.annotate",
+          "group": "navigation"
         }
       ]
     }
