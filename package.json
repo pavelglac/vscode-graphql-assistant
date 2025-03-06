@@ -1,8 +1,13 @@
 {
   "name": "graphql-assistant",
   "displayName": "GraphQL assistant",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pavelglac/vscode-graphql-assistant.git"
+  },
   "description": "AI powered GraphQL assistant for GraphQL schema design",
   "version": "0.0.1",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.97.0"
   },
