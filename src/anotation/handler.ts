@@ -12,7 +12,6 @@ type DecorationProps = {
 const applyDecoration = ({ editor, line, suggestion }: DecorationProps) => {
   const decorationType = window.createTextEditorDecorationType({
     after: {
-      contentIconPath: "./icon.svg",
       contentText: ` ${suggestion.substring(0, 25) + "..."}`,
       color: "grey",
     },

@@ -18,16 +18,24 @@ async function applySchemaaChange(change: { file: string; lines: [number, number
 }
 
 export function activate(context: vscode.ExtensionContext) {
-	const graphqlChat = vscode.chat.createChatParticipant('graphql-assistant.chat', schemaHandler);
-	graphqlChat.iconPath = vscode.Uri.joinPath(context.extensionUri, './icon.svg');
-	vscode.commands.registerTextEditorCommand(
-		'graphql-assistant.annotate',
-		anotationHandler
-	);
+	const config = vscode.workspace.getConfiguration('graphql-assistant');
+	const enableChat = config.get<boolean>('enableChat', true);
+	const enableAnnotations = config.get<boolean>('enableAnnotations', true);
 
-	context.subscriptions.push(
-		vscode.commands.registerCommand('graphql-assistant.applyChange', async (change: any) => {
-			await applySchemaChange(change);
-		})
-	);
+	if (enableChat) {
+		const graphqlChat = vscode.chat.createChatParticipant('graphql-assistant.chat', schemaHandler);
+		graphqlChat.iconPath = vscode.Uri.joinPath(context.extensionUri, './icon.svg');
+		context.subscriptions.push(
+			vscode.commands.registerCommand('graphql-assistant.applyChange', async (change: any) => {
+				await applySchemaChange(change);
+			})
+		);
+	}
+
+	if (enableAnnotations) {
+		vscode.commands.registerTextEditorCommand(
+			'graphql-assistant.annotate',
+			anotationHandler
+		);
+	}
 }

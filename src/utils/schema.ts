@@ -11,11 +11,21 @@ import {
   SCHEMA_PROMPT,
 } from "../schema/prompts";
 
+const config = workspace.getConfiguration("graphql-assistant");
+const schemaIncludePattern = config.get<string>(
+  "schemaIncludePattern",
+  "**/module.graphql"
+);
+const schemaExcludePattern = config.get<string>(
+  "schemaExcludePattern",
+  "**/node_modules/**"
+);
+
 const getAllSchemaFiles = async (stream: ChatResponseStream) => {
   stream.progress("Collecting schema files.");
   const schemaFiles = await workspace.findFiles(
-    "**/module.graphql",
-    "**/node_modules/**"
+    schemaIncludePattern,
+    schemaExcludePattern
   );
   return schemaFiles;
 };

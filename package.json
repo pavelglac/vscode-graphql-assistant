@@ -1,13 +1,14 @@
 {
   "name": "graphql-assistant",
-  "displayName": "graphql-assistant",
-  "description": "",
+  "displayName": "GraphQL assistant",
+  "description": "AI powered GraphQL assistant for GraphQL schema design",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.97.0"
   },
   "categories": [
-    "Other"
+    "AI",
+    "Extension Packs"
   ],
   "activationEvents": [],
   "main": "./dist/extension.js",
@@ -50,6 +51,32 @@
           "group": "navigation"
         }
       ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "GraphQL Assistant Configuration",
+      "properties": {
+        "graphql-assistant.enableChat": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable the GraphQL Chat feature"
+        },
+        "graphql-assistant.enableAnnotations": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable inline GraphQL annotations"
+        },
+        "graphql-assistant.schemaIncludePattern": {
+          "type": "string",
+          "default": "**/module.graphql",
+          "description": "Glob pattern for GraphQL schema files"
+        },
+        "graphql-assistant.schemaExcludePattern": {
+          "type": "string",
+          "default": "**/node_modules/**",
+          "description": "Glob pattern for excluding GraphQL schema files"
+        }
+      }
     }
   },
   "scripts": {
