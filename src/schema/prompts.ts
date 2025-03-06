@@ -1,4 +1,5 @@
 import { LanguageModelChatMessage } from "vscode";
+
 const JSON_ANOTAION = "/### JSON Object with changes\n```json\n";
 export const JSON_ANOTATION_REGEX =
   /### JSON Object .*\n```json\n(\[.*?\])\n```/s;
