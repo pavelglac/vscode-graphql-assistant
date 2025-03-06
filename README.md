@@ -1,71 +1,41 @@
-# graphql-schema README
+# GraphQL Assistant
 
-This is the README for your extension "graphql-schema". After writing up a brief description, we recommend including the following sections.
+GraphQL Assistant is an AI-powered assistant for GraphQL schema design. It provides features like GraphQL chat and inline annotations to help you design and manage your GraphQL schemas more efficiently.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### GraphQL Chat
+- Interact with the AI assistant to get suggestions and improvements for your GraphQL schema.
+- Use commands like "Apply schema changes" to automatically apply suggested changes to your schema files.
 
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### Inline Annotations
+- Get inline annotations in your code editor with suggestions for improving your GraphQL schema.
+- Use the "Toggle GraphQL Annotations" command to enable or disable inline annotations.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Visual Studio Code version 1.97.0 or higher
+- Node.js and npm installed on your machine
+
+## Installation
+
+1. Install Visual Studio Code from [here](https://code.visualstudio.com/).
+2. Install Node.js and npm from [here](https://nodejs.org/).
+3. Clone this repository and navigate to the project directory.
+4. Run `npm install` to install the dependencies.
+5. Open the project in Visual Studio Code.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
 This extension contributes the following settings:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- `graphql-assistant.enableChat`: Enable/disable the GraphQL Chat feature.
+- `graphql-assistant.enableAnnotations`: Enable/disable inline GraphQL annotations.
+- `graphql-assistant.schemaIncludePattern`: Glob pattern for GraphQL schema files.
+- `graphql-assistant.schemaExcludePattern`: Glob pattern for excluding GraphQL schema files.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- Initial release of GraphQL Assistant
