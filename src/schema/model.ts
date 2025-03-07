@@ -28,9 +28,9 @@ const getSummary = async ({
   token,
   stream,
 }: SummaryProps) => {
-  const SUMMARY_PROMPT = getSummaryPrompt(responses.join("\n"));
+  const SUMMARY_PROMPT = getSummaryPrompt(responses);
   const USER_PROMPT = getUserPrompt(request.prompt);
-  const finalMessages = [SCHEMA_PROMPT, SUMMARY_PROMPT, USER_PROMPT];
+  const finalMessages = [SUMMARY_PROMPT];
   stream.progress("Summarizing responses.");
   const response = await request.model.sendRequest(finalMessages, {}, token);
 

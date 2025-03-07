@@ -1,5 +1,6 @@
 import type { ChatRequestHandler } from "vscode";
 import { chunkSchema, getMergedSchema, getResponse } from "../utils";
+import { printResponse } from "../utils/chatResponse";
 import {
   getSchemaPrompt,
   getUserPrompt,
@@ -44,7 +45,7 @@ export const handler: ChatRequestHandler = async (
     const suggestions = getSuggestedChanges(response);
     const cleanResponse = response.replace(JSON_ANOTATION_REGEX, "");
 
-    stream.markdown(cleanResponse);
+    printResponse(cleanResponse, stream);
     if (suggestions) {
       stream.button({
         title: "Apply schema changes",

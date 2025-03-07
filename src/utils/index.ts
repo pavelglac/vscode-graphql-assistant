@@ -3,3 +3,4 @@ export {
   getFileContentWithLineNumbers,
   getVisibleCodeWithLineNumbers,
 } from "./documentFormat";
+export { printResponse } from "./chatResponse";
